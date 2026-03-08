@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.pth
+*.bin
+
+# Conda
+.conda/
+
+# Data and models (too large for git)
+data/chroma_index/
+models/reranker/
+models/verifier_qlora/
+models/fallback_classifier/
+data/fever/
+data/wikipedia_2024/
+
+# Logs
+logs/*.jsonl
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
