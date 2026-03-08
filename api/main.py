@@ -70,15 +70,14 @@ Respond with valid JSON only. No markdown, no code fences, no extra text."""
 
     try:
         response = requests.post(
-            f"{OLLAMA_BASE_URL}/api/generate",
+            f"{OLLAMA_BASE_URL}/api/chat",
             json={
                 "model": OLLAMA_MODEL,
-                "prompt": prompt,
+                "messages": [{"role": "user", "content": prompt}],
                 "stream": False,
-                "think": False,
                 "options": {
                     "temperature": 0.1,
-                    "presence_penalty": 1.0,
+                    "presence_penalty": 1.5,
                     "num_predict": 200
                 }
             },
@@ -87,9 +86,7 @@ Respond with valid JSON only. No markdown, no code fences, no extra text."""
 
         response_json = response.json()
 
-        if "response" in response_json:
-            raw = response_json["response"].strip()
-        elif "message" in response_json:
+        if "message" in response_json:
             raw = response_json["message"]["content"].strip()
         else:
             raise ValueError(f"Unexpected response format: {list(response_json.keys())}")

@@ -71,6 +71,12 @@ class EvidenceHunter:
         for subclaim in subclaims:
             results[subclaim] = self.retrieve(subclaim, top_k=10)
         return results
+    
+    def unload_embedder(self):
+        """Free embedding model from RAM before calling Ollama."""
+        del self.embedder
+        self.embedder = None
+        print("[EvidenceHunter] Embedder unloaded from RAM.")
 
 
 if __name__ == "__main__":

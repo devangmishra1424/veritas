@@ -25,13 +25,10 @@ class Verifier:
     def __init__(self, fallback_classifier=None):
         self.ollama_url = OLLAMA_BASE_URL
         self.model = OLLAMA_MODEL
-        # Fallback slot — filled after Kaggle training Day 16
         self.fallback = fallback_classifier
         print(f"[Verifier] Ready. Model: {self.model}")
 
     def _build_prompt(self, claim: str, evidence: list[dict]) -> str:
-        """Build prompt with claim and retrieved evidence."""
-
         if evidence:
             evidence_text = "\n".join([
                 f"[{i+1}] {e['text'][:300]}"
@@ -54,24 +51,23 @@ Respond with ONLY a valid JSON object with these exact fields:
 
 Rules:
 - Use SUPPORTS if evidence confirms the claim
-- Use REFUTES if evidence contradicts the claim  
+- Use REFUTES if evidence contradicts the claim
 - Use NOT_ENOUGH_INFO if evidence is insufficient or unrelated
 - Be conservative — only use SUPPORTS or REFUTES when evidence is clear
 
 JSON only. No markdown, no code fences, no extra text."""
 
     def _call_ollama(self, prompt: str) -> dict:
-        """Call Ollama and parse response."""
         response = requests.post(
-            f"{self.ollama_url}/api/generate",
+            f"{self.ollama_url}/api/chat",
             json={
                 "model": self.model,
-                "prompt": prompt,
+                "messages": [{"role": "user", "content": prompt}],
                 "stream": False,
                 "think": False,
                 "options": {
                     "temperature": 0.1,
-                    "presence_penalty": 1.0,
+                    "presence_penalty": 1.5,
                     "num_predict": 200
                 }
             },
@@ -80,28 +76,20 @@ JSON only. No markdown, no code fences, no extra text."""
 
         response_json = response.json()
 
-        if "response" in response_json:
-            raw = response_json["response"].strip()
-        elif "message" in response_json:
+        if "message" in response_json:
             raw = response_json["message"]["content"].strip()
         else:
             raise ValueError(f"Unexpected format: {list(response_json.keys())}")
 
-        # Strip thinking tags
         if "<think>" in raw:
             raw = raw.split("</think>")[-1].strip()
 
-        # Clean markdown fences
         raw = raw.replace("```json", "").replace("```", "").strip()
 
         result = json.loads(raw)
         return result
 
     def verify(self, claim: str, evidence: list[dict]) -> dict:
-        """
-        Main verification method.
-        Returns verdict dict with routing info.
-        """
         start_time = time.time()
         prompt = self._build_prompt(claim, evidence)
 
@@ -116,7 +104,6 @@ JSON only. No markdown, no code fences, no extra text."""
             confidence = max(0.0, min(1.0, confidence))
             explanation = result.get("explanation", "No explanation.")
 
-            # Route to fallback if confidence too low
             routed_to_fallback = False
             if confidence < CONFIDENCE_THRESHOLD and self.fallback:
                 fallback_result = self.fallback.classify(claim, evidence)
@@ -150,30 +137,9 @@ JSON only. No markdown, no code fences, no extra text."""
 
 
 if __name__ == "__main__":
-    import sys
-    sys.path.insert(0, ".")
-    from src.retriever import EvidenceHunter
-
-    print("=" * 60)
-    print("Verifier Agent Test")
-    print("=" * 60)
-
-    hunter = EvidenceHunter()
     verifier = Verifier()
-
-    test_claims = [
+    result = verifier.verify(
         "Barack Obama was born in Hawaii.",
-        "The Great Wall of China is visible from space.",
-        "Einstein won the Nobel Prize in Physics in 1921.",
-    ]
-
-    for claim in test_claims:
-        print(f"\nClaim: {claim}")
-        evidence = hunter.retrieve(claim, top_k=5)
-        print(f"Evidence retrieved: {len(evidence)} passages")
-        result = verifier.verify(claim, evidence)
-        print(f"  Verdict:     {result['verdict']}")
-        print(f"  Confidence:  {result['confidence']}")
-        print(f"  Explanation: {result['explanation']}")
-        print(f"  Latency:     {result['latency']}s")
-        print(f"  Fallback:    {result['routed_to_fallback']}")
+        [{"text": "Barack Obama was born in Kenya. [Source: Barack_Obama]", "score": 0.78}]
+    )
+    print(result)
