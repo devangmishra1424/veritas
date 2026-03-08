@@ -1,0 +1,272 @@
+[
+  {
+    "claim": "Yale University's alumni consists of 20 living billionaires.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 29.24,
+    "correct": false
+  },
+  {
+    "claim": "Global warming is expected to shrink glaciers.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 31.9,
+    "correct": false
+  },
+  {
+    "claim": "Advertising is a type of message.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 27.99,
+    "correct": false
+  },
+  {
+    "claim": "David Packouz had something to do with weapons at some point in his life.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 32.12,
+    "correct": false
+  },
+  {
+    "claim": "Osamu Tezuka was a child.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 31.93,
+    "correct": false
+  },
+  {
+    "claim": "Mary of Teck's son married a Wallis Simpson.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 31.61,
+    "correct": false
+  },
+  {
+    "claim": "The dress was investigated by people.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 34.65,
+    "correct": false
+  },
+  {
+    "claim": "Janelle Mon\u00e1e has a full name.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 29.38,
+    "correct": false
+  },
+  {
+    "claim": "Marco Polo was a Venetian.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 28.06,
+    "correct": false
+  },
+  {
+    "claim": "Southampton F.C. has won a competition.",
+    "true_label": "SUPPORTS",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 29.42,
+    "correct": false
+  },
+  {
+    "claim": "EA Black Box was a video game ender.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 30.05,
+    "correct": false
+  },
+  {
+    "claim": "DJ Quik was conceived on January 22nd, 1970.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 32.55,
+    "correct": false
+  },
+  {
+    "claim": "Tim Roth is not an English actor.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 27.6,
+    "correct": false
+  },
+  {
+    "claim": "100 percent of the University of Mississippi students are minorities.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 34.56,
+    "correct": false
+  },
+  {
+    "claim": "The Mighty Ducks was only produced by Paramount Pictures.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 32.85,
+    "correct": false
+  },
+  {
+    "claim": "Trollhunters was only created for Hulu.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 29.94,
+    "correct": false
+  },
+  {
+    "claim": "Diana, Princess of Wales got married on August 28, 1996.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 29.23,
+    "correct": false
+  },
+  {
+    "claim": "Vedam stars Seth Rogan.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 32.74,
+    "correct": false
+  },
+  {
+    "claim": "Kellogg's products are marketed in only one country.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 32.4,
+    "correct": false
+  },
+  {
+    "claim": "Angelsberg had a population of 283 in the Middle Ages.",
+    "true_label": "REFUTES",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 31.35,
+    "correct": false
+  },
+  {
+    "claim": "Jeong Hyeong-don is Japanese.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 28.22,
+    "correct": true
+  },
+  {
+    "claim": "Rhythm Nation was performed on America's Got Talent.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 30.39,
+    "correct": true
+  },
+  {
+    "claim": "Private Lives is a comedy by a Protestant playwright.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 31.99,
+    "correct": true
+  },
+  {
+    "claim": "A monk lives alone or with other cats.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "NOT_FACTUAL",
+    "confidence": 0.0,
+    "latency": 0.0,
+    "correct": true
+  },
+  {
+    "claim": "Reign Over Me stars Adam Sandler and Cameron Diaz.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 49.02,
+    "correct": true
+  },
+  {
+    "claim": "Pirates of the Caribbean was opened in Disneyland Paris in 1992.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 33.54,
+    "correct": true
+  },
+  {
+    "claim": "Vedam stars Deeksha Seth in the role of Darth Maul.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 27.67,
+    "correct": true
+  },
+  {
+    "claim": "Miranda Otto is the first daughter of Barry Otto.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 27.39,
+    "correct": true
+  },
+  {
+    "claim": "Nuuk is the island of Greenland.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 27.64,
+    "correct": true
+  },
+  {
+    "claim": "Varsity Blues (film) has a domestic box office gross of $52 million Hong Kong dollars.",
+    "true_label": "NOT ENOUGH INFO",
+    "predicted": "NOT ENOUGH INFO",
+    "veritas_verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.1,
+    "latency": 27.11,
+    "correct": true
+  }
+]
