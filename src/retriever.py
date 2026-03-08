@@ -32,6 +32,12 @@ class EvidenceHunter:
         count = self.collection.count()
         print(f"[EvidenceHunter] Ready. Index contains {count:,} passages.")
 
+    def reload_embedder(self):
+        """Reload embedding model if it was unloaded."""
+        if self.embedder is None:
+            print("[EvidenceHunter] Reloading embedder...")
+            self.embedder = SentenceTransformer("all-MiniLM-L6-v2")
+
     def retrieve(self, query: str, top_k: int = 10) -> list[dict]:
         """
         First-stage retrieval: embed query, search ChromaDB.
@@ -39,6 +45,9 @@ class EvidenceHunter:
         """
         if not query.strip():
             return []
+
+        # Auto-reload embedder if unloaded
+        self.reload_embedder()
 
         embedding = self.embedder.encode(query).tolist()
 
@@ -51,16 +60,15 @@ class EvidenceHunter:
         for i in range(len(results["documents"][0])):
             passages.append({
                 "text": results["documents"][0][i],
-                "score": 1 - results["distances"][0][i],  # cosine similarity
+                "score": 1 - results["distances"][0][i],
                 "metadata": results["metadatas"][0][i],
                 "rank": i + 1
             })
 
-        # Rerank if weights available, otherwise return as-is
         if self.reranker:
             passages = self.reranker.rerank(query, passages)
 
-        return passages[:5]  # Return top 5 after reranking
+        return passages[:5]
 
     def retrieve_for_subclaims(self, subclaims: list[str]) -> dict:
         """
@@ -71,7 +79,7 @@ class EvidenceHunter:
         for subclaim in subclaims:
             results[subclaim] = self.retrieve(subclaim, top_k=10)
         return results
-    
+
     def unload_embedder(self):
         """Free embedding model from RAM before calling Ollama."""
         del self.embedder
