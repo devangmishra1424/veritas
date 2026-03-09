@@ -121,7 +121,7 @@ class Evaluator:
                     "veritas_verdict": "ERROR",
                     "confidence": 0.0,
                     "latency": 0.0,
-                    "correct": false,
+                    "correct": False,
                     "error": str(e)
                 })
 
